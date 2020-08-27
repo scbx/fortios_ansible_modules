@@ -1,3 +1,4 @@
 # FortiOS FortiGate Ansible Modules
 ## Overview
-Creating a repository for modified Ansible Modules that aren't published on the Ansible Network Module website that I need to use as per my own requirements.
+I modified one of the existing Ansible Modules from the Ansible Network Modules Repo to do a few extra things, functionality that doesn't seem to exist on the Ansible Network Module for FortiOS (that I am aware of).
+Titles are fairly explanatory.
