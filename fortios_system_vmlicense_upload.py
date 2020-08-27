@@ -26,7 +26,7 @@ DOCUMENTATION = '''
 module: fortios_system_vmlicense_upload
 short_description: Perform vmlicense upload on FortiGate or FortiOS (FOS) device.
 description:
-    - This module is able to perform firmware upgrade on FortiGate or FortiOS (FOS) device by specifying
+    - This module is able to perform vmlicense upload on FortiGate or FortiOS (FOS) device by specifying
       vmlicense source and filename.
       Examples include all parameters and values need to be adjusted to datasources before usage.
       Tested with FOS v6.2.4
@@ -88,12 +88,12 @@ options:
                 required: false
             filename:
                 description:
-                    - Name and path of the local firmware file.
+                    - Name and path of the local license file.
                 type: str
                 required: true
             source:
                 description:
-                    - Firmware file data source [upload].
+                    - Vmlicense file data source [upload].
                 type: str
                 required: true
                 choices:
@@ -143,7 +143,7 @@ name:
   description: Name of the table used to fulfill the request
   returned: always
   type: str
-  sample: "firmware"
+  sample: ""
 path:
   description: Path of the table used to fulfill the request
   returned: always
