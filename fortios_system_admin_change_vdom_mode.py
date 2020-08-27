@@ -77,7 +77,7 @@ version:
 
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-#from ansible.module_utils.network.fortios.fortios import FortiOSHandler
+from ansible.module_utils.network.fortios.fortios import FortiOSHandler
 from ansible.module_utils.network.fortimanager.common import FAIL_SOCKET_MSG
 import os
 import base64
