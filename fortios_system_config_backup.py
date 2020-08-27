@@ -102,9 +102,8 @@ def fortios_system(data, fos):
         resp = config_backup(data, fos)
         config = resp.text
         filename = data['config_backup']['filename']
-        file = open(filename, 'w')
-        file.write(config)
-        file.close()
+        with open(filename, 'w') as file:
+            file.write(config)
         return False, False, {
             'status': 200,
             'backup': config
@@ -126,7 +125,7 @@ def main():
 				"scope": {"required": True, "type": "str",
 					"choices": ["global", "vdom"]},
 				"destination": {"required": False, "type": "str"},
-                "filename": {"required": False, "type":"str"}
+                "filename": {"required": False, "type":"str"},
 				"usb_filename": {"required": False, "type": "str"},
 				"password": {"required": False, "type": "str"},
 				"vdom": {"required": False, "type": "str"},
