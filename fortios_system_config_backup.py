@@ -100,9 +100,9 @@ def fortios_system(data, fos):
 
     if data['config_backup']:
         resp = config_backup(data, fos)
-        config = resp.text
+        config = resp.content
         filename = data['config_backup']['filename']
-        with open(filename, 'w') as file:
+        with open(filename, 'wb') as file:
             file.write(config)
         return False, False, {
             'status': 200,
