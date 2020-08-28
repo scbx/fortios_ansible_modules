@@ -91,11 +91,6 @@ def config_backup(data, fos, check_mode=False):
 )
 
 
-def is_successful_status(status):
-    return status['status'] == "success" or \
-           status['http_method'] == "DELETE" and status['http_status'] == 404
-
-
 def fortios_system(data, fos):
 
     if data['config_backup']:
