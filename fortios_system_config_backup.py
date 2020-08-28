@@ -84,6 +84,7 @@ def config_backup(data, fos, check_mode=False):
     filtered_data = {}
     filtered_data = underscore_to_hyphen(filter_config_backup_data(config_backup_data))
 
+    #use monitor api - /monitor prefix is required for the config backup
     return fos.monitor('system',
                    'config/backup',
                     vdom=vdom,
@@ -95,10 +96,16 @@ def fortios_system(data, fos):
 
     if data['config_backup']:
         resp = config_backup(data, fos)
+	
+	#use binary (resp.content) instead of resp.text - as binary can be still written to a file if there is a non-ascii code returned or in the fortigate configuration
         config = resp.content
         filename = data['config_backup']['filename']
+	
+	#context handler to write binary to file
         with open(filename, 'wb') as file:
             file.write(config)
+	
+	#return a true result - as received response will be a config file
         return False, False, {
             'status': 200,
             'backup': config
