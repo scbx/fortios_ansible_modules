@@ -23,6 +23,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 
 DOCUMENTATION = '''
 DOCUMENTATION HERE
+- The VDOM is determined up a level, that will extract the bgp information from that vdom.
 '''
 
 EXAMPLES = '''
