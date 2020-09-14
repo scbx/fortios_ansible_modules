@@ -80,10 +80,9 @@ def underscore_to_hyphen(data):
 def bgp_info(data, fos, check_mode=False):
     vdom = data['vdom']
     bgp_info_data = data['bgp_info']
-
     filtered_data = {}
     filtered_data = underscore_to_hyphen(filter_bgp_info_data(bgp_info_data))
-
+    print(filtered_data)
     return fos.get('router',
                    'bgp',
                     vdom=vdom,
@@ -117,7 +116,6 @@ def main():
             "options": {
 				"scope": {"required": True, "type": "str",
 					"choices": ["global", "vdom", "both*"]},
-				"vdom": {"required": False, "type": "str"},
             }
         }
     }
